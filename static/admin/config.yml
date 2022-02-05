@@ -121,6 +121,27 @@ collections:
                   },
                 ],
             }
+      - file: "src/pages/grafisk-identitet/index.md"
+        label: "Grafisk identitet"
+        name: "grafisk-identitet"
+        fields:
+          - {
+              label: "Template Key",
+              name: "templateKey",
+              widget: "hidden",
+              default: "grafisk-identitet-page",
+            }
+          - { label: "Titel", name: "title", widget: string, required: true }
+          - label: "Grafiske identiter"
+            name: "identities"
+            widget: list
+            allow_add: true
+            label_singular: "Identitet"
+            fields:
+              - { label: "Titel", name: "title", widget: string, required: true }
+              - { label: "Kort beskrivelse (til forside)", name: teaser, widget: string, required: true }
+              - { label: "Beskrivelse", name: description, widget: text, required: true }
+              - { label: "Billede", name: image, widget: image, required: true }
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"

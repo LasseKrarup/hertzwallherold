@@ -1,89 +1,61 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion"
 
 import Layout from "../components/Layout";
-import Features from "../components/Features";
-import BlogRoll from "../components/BlogRoll";
-import FullWidthImage from "../components/FullWidthImage";
+import Streg1 from "../img/Streg1.svg"
+import Subheading from "../components/Subheading";
+import GrafiskIdentitet from "../components/GrafiskIdentitet";
+import { v4 } from "uuid";
 
 // eslint-disable-next-line
 export const IndexPageTemplate = ({
-  image,
   title,
-  heading,
-  subheading,
-  mainpitch,
-  description,
-  intro,
+  identities
 }) => {
-  const heroImage = getImage(image) || image;
+
+  const linkVariant = {
+    hover: {
+      scale: 1.2
+    }
+  }
 
   return (
-    <div>
-      <FullWidthImage img={heroImage} title={title} subheading={subheading} />
-      <section className="section section--gradient">
-        <div className="container">
-          <div className="section">
-            <div className="columns">
-              <div className="column is-10 is-offset-1">
-                <div className="content">
-                  <div className="content">
-                    <div className="tile">
-                      <h1 className="title">{mainpitch.title}</h1>
-                    </div>
-                    <div className="tile">
-                      <h3 className="subtitle">{mainpitch.description}</h3>
-                    </div>
-                  </div>
-                  <div className="columns">
-                    <div className="column is-12">
-                      <h3 className="has-text-weight-semibold is-size-2">
-                        {heading}
-                      </h3>
-                      <p>{description}</p>
-                    </div>
-                  </div>
-                  <Features gridItems={intro.blurbs} />
-                  <div className="columns">
-                    <div className="column is-12 has-text-centered">
-                      <Link className="btn" to="/products">
-                        See all products
-                      </Link>
-                    </div>
-                  </div>
-                  <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      Latest stories
-                    </h3>
-                    <BlogRoll />
-                    <div className="column is-12 has-text-centered">
-                      <Link className="btn" to="/blog">
-                        Read more
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div className="relative">
+      <section className="bg-black h-screen flex items-center justify-center text-white">
+        <img src={Streg1} alt="bg graphic" className="pointer-events-none absolute right-0 top-0 w-80 h-80 opacity-75 m-8" />
+        <h1 className="font-extralight absolute top-0 left-0 text-9xl pointer-events-none pt-32 pl-16">Hertzwall<br />Herold</h1>
+        <ul id="index-nav" className="mt-64 text-4xl font-normal leading-snug">
+          <li><Link to="/grafisk-identitet/"><motion.div whileHover="hover" variants={linkVariant}>Grafisk identitet</motion.div></Link></li>
+          <li><Link to="/industriel-grafik/"><motion.div whileHover="hover" variants={linkVariant}>Industiel grafik</motion.div></Link></li>
+          <li><Link to="/produktdesign/"><motion.div whileHover="hover" variants={linkVariant}>Produktdesign</motion.div></Link></li>
+          <li><Link to="/airbrush/"><motion.div whileHover="hover" variants={linkVariant}>Airbrush</motion.div></Link></li>
+          <li><Link to="/kunst/"><motion.div whileHover="hover" variants={linkVariant}>Kunst</motion.div></Link></li>
+          <li><Link to="/om/"><motion.div whileHover="hover" variants={linkVariant}>Om</motion.div></Link></li>
+        </ul>
+      </section>
+
+      <section className="text-black">
+        <Subheading title="Grafisk identitet" className="text-right pr-8 pt-16" />
+        {
+          identities.map( (item) => {
+            console.log(item)
+            return <GrafiskIdentitet 
+                            title={item.title}
+                            description={item.description}
+                            teaser={item.teaser}
+                            image={item.image}
+                            key={v4()} />
+          })
+        }
       </section>
     </div>
   );
 };
 
 IndexPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
 };
 
 const IndexPage = ({ data }) => {
@@ -92,58 +64,32 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
         title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
+        identities={frontmatter.identities}
       />
     </Layout>
   );
 };
 
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
-};
 
 export default IndexPage;
 
 export const pageQuery = graphql`
-  query IndexPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
-      frontmatter {
+query IndexPageQuery {
+  markdownRemark(frontmatter: {templateKey: {eq: "grafisk-identitet-page"}}) {
+    frontmatter {
+      identities {
         title
+        description
+        teaser
         image {
           childImageSharp {
-            gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+            gatsbyImageData
           }
-        }
-        heading
-        subheading
-        mainpitch {
-          title
-          description
-        }
-        description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                gatsbyImageData(width: 240, quality: 64, layout: CONSTRAINED)
-              }
-            }
-            text
-          }
-          heading
-          description
+          relativePath
         }
       }
     }
   }
+}
 `;

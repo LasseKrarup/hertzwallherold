@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="203.65" height="200" version="1.1" viewBox="0 0 53.882 52.917" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <defs>
+  <clipPath id="clipPath6134">
+   <path d="m218.97 572.19h170.08v-141.73h-170.08z" clip-rule="evenodd"/>
+  </clipPath>
+  <clipPath id="clipPath6140">
+   <path d="m0 842h595v-841h-595z"/>
+  </clipPath>
+  <clipPath id="clipPath6146">
+   <path d="M 0,841.98 H 595.2 V 0 H 0 Z"/>
+  </clipPath>
+ </defs>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="matrix(1.0182 0 0 1.0182 -49.472 -46.626)">
+  <g transform="matrix(.40518 0 0 -.40518 -47.827 273.51)">
+   <g clip-path="url(#clipPath6134)">
+    <g clip-path="url(#clipPath6140)">
+     <g clip-path="url(#clipPath6146)">
+      <path d="m237.96 515.09h10.63v31.89h-10.63z" fill="#86cc9c"/>
+      <g transform="translate(248.59,546.98)">
+       <path d="M 0,0 15.031,15.031 30.063,0 15.032,-15.031 0,0" fill="#9ea6db"/>
+      </g>
+      <path d="m278.66 515.09h10.63v31.89h-10.63z" fill="#86cc9c"/>
+      <path d="m317.25 515.09h10.63v31.89h-10.63z" fill="#f4881a"/>
+      <g transform="translate(327.87,546.98)">
+       <path d="M 0,0 15.031,15.031 30.063,0 15.032,-15.031 0,0" fill="#f153ac"/>
+      </g>
+      <path d="m357.94 515.09h10.63v31.89h-10.63z" fill="#30914f"/>
+      <path d="m317.25 433.74h10.63v31.89h-10.63z" fill="#273071"/>
+      <g transform="translate(327.87,465.62)">
+       <path d="M 0,0 15.031,15.031 30.063,0 15.032,-15.031 0,0" fill="#30914f"/>
+      </g>
+      <path d="m357.94 433.74h10.63v31.89h-10.63z" fill="#273071"/>
+      <path d="m237.96 433.74h10.63v31.89h-10.63z" fill="#f153ac"/>
+      <g transform="translate(248.59,465.62)">
+       <path d="M 0,0 15.031,15.031 30.063,0 15.032,-15.031 0,0" fill="#f4881a"/>
+      </g>
+      <path d="m278.66 433.74h10.63v31.89h-10.63z" fill="#f2cd1a"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
